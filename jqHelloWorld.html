@@ -10,12 +10,27 @@
 html,body{
 	height: 100%;
 }
+#logo img{
+	width: 65px;
+	margin-top: 30px;
+	margin-left: 35px;
+}
+p{
+	color: white;
+	font-size: 25px;
+}
+button{
+	color: white;
+	background-color: #358cc6;
+}
 .leftBar{
+	padding-left: 25px;
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 200px;
+	width: 175px;
 	height:100%;
+	background-color: #0093dd;
 	/*border: 1px solid black;*/
  
 }
@@ -25,9 +40,10 @@ html,body{
 	/*float: right;*/
 	margin-left: 200px;
 	top: 0;
+	background-color: #1fbba6;
  
 	 
-	height:95px;
+	height:120px;
 	/*border: 1px solid black;*/
 }
 .content{
@@ -40,14 +56,16 @@ html,body{
 	position: fixed;
 	right: 0;
 	top: 0;
-	width: 120px;
+	width: 110px;
 	height: 50px;
-	background-color: gold;
+	background-color: rgba(248,212,13,0.5);
+	color: white;
+	/*padding-left: 10px;*/
 }
 #preview{
 	position: absolute;
 	left: 200px;
-	top: 120px;
+	top: 140px;
 
 }
 #mark{
@@ -55,6 +73,9 @@ html,body{
 	width: 300px;
 	height: 50px;
 	overflow: scroll;
+	background-color: #179f8d;
+		color: white;
+	font-size: 13px;
 }
 
 #store{
@@ -64,25 +85,33 @@ html,body{
 	height: 50px;
 	overflow: scroll;
 	white-space:nowrap; 
+	color: white;
+	font-size: 12px;
+	background-color: #179f8d;
 }
 
 #fileListInput{
-	position: absolute;
-	top: 20%;
-	left: 10%;
+	position: relative;
+	border: none;
 	width: 150px;
 	height: 350px;
 	overflow: scroll;
+	color: white;
+	background-color: #057fbc;
 }
 
+textarea::-webkit-input-placeholder {
+	color: #88cef1;  
+}
+ 
 #fileList select{
-	position: absolute;
-	top: 20%;
-	left: 10%;
+	position: relative;
+	color: white;
 	width: 150px;
 	height: 350px;
 	overflow: scroll;
 	display: none;
+	background-color: #358cc6;
 }
 #fileList option{
 	height: 25px;
@@ -94,25 +123,32 @@ html,body{
 }
 
 #preImg{
-	left: 15%;
-	position: absolute;
-	top: 66%
+	 
 }
 #nextImg{
-	left: 45%;
-	position: absolute;
-	top: 66%
+	 
 }
 #genFileList{
-	left: 25%;
-	position: absolute;
-	top: 70%
+	margin-top: -10px;
+  margin-left: 20px;
+  margin-bottom: 5px;
 }
 #start{
-	margin-left: 60px;
+	margin-left: -25px;
 }
 #clearAll{
-	margin-left: 220px;
+	margin-left: 120px;
+}
+#auto{
+	margin-left: 50px;
+	color: white;
+	background-color: red;
+}
+.checkboxThree p{
+	margin-top: 24px;
+	font-size: 15px;
+	width: 150px;
+	margin-left: 14px;
 }
 .point{
 	/*border-radius: 50px;*/
@@ -136,34 +172,90 @@ html,body{
 .listOdd{
 	background-color: green;
 }
+
+.dow{display:block;width:102px;height:42px; line-height:42px; text-align:center;
+	  vertical-align: bottom;
+	  border-radius: 2px;
+	 font-family:arial,verdana,sans-serif, '新宋体'; font-weight:bold; font-size:14px; background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
+	  transition: background-color 0.7s;
+  -moz-transition: background-color   0.7s; /* Firefox 4 */
+  -webkit-transition:background-color  0.7s; /* Safari and Chrome */
+  -o-transition:background-color 0.7s;  /* Opera */}
+ 
+
+
+.dowLit{display:inline-block;width:73px;height:26px; line-height:26px; text-align:center;
+	  vertical-align: bottom;
+	   
+	  margin-top: 5px;
+	  border-radius: 2px;
+	 font-family:arial,verdana,sans-serif, '新宋体'; font-weight:bold; font-size:12px; background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
+	  transition: background-color 0.7s;
+  -moz-transition: background-color   0.7s; /* Firefox 4 */
+  -webkit-transition:background-color  0.7s; /* Safari and Chrome */
+  -o-transition:background-color 0.7s;  /* Opera */}
+ 
+
+.dowLit2{display:inline-block;width:102px;height:42px; line-height:42px; text-align:center;
+	  vertical-align: bottom;
+	  margin-left: 15px;
+	  margin-top: 5px;
+	  border-radius: 2px;
+	 font-family:arial,verdana,sans-serif, '新宋体'; font-weight:bold; font-size:13px; 
+	 background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
+ 
+  transition: background-color 0.7s;
+  -moz-transition: background-color   0.7s; /* Firefox 4 */
+  -webkit-transition:background-color  0.7s; /* Safari and Chrome */
+  -o-transition:background-color 0.7s;  /* Opera */
+}
+.dow:hover,
+.dowLit:hover,
+.dowLit2:hover
+{background:#fbd91f;}
+.dow:active,
+.dowLit:active,
+.dowLit2:active{background:#0d79d5;}
+
+
+input[type=checkbox]{visibility:hidden;}  .checkboxThree{width: 120px; height:40px;background:#333;margin:20px 25px;border-radius:50px;position:relative;margin-left: 15px;}.checkboxThree:before{content:'On';position:absolute;top:12px;left:13px;height:2px;color:#1fbba6;font-size:16px;}.checkboxThree:after{content:'Off';position:absolute;top:12px;left:84px;height:2px;color:#ddd;font-size:16px;}.checkboxThree label{display:block;width:52px;height:22px;border-radius:50px;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;-ms-transition:all .5s ease;transition:all .5s ease;cursor:pointer;position:absolute;top:9px;z-index:1;left:12px;background:#ddd;}.checkboxThree input[type=checkbox]:checked+label{left:60px;background:#1fbba6;} </style>
 </style>
  
 </head>
-<body ng-app = "imageMark">
+<body  >
  
 
 
 <div class = "leftBar">
-	<div> <input type="button" id ="button1" value="jia" >
-	<input type="button" id ="button2" value="you" > </div>
-	<br>
- 
-	<input id="upload" type="file"    ><br>
-	<br>
+	<div id = "logo">
+		<img src="img/logo.png"></img>
+	</div>
+	<p>图片文件列表</p>
 
-	<textarea id = "fileListInput"></textarea>
+
+ 
+	<a  id ="genFileList"  class="dow" disabled = "disabled" > 生成文件列表</a>
+	<textarea id = "fileListInput" placeholder="将文件名字列表复制到这里"></textarea>
 	<div id = "fileList">
 		 
 	</div>
-	<button id ="preImg" disabled= "false" > 上一张</button>
-	<button id ="nextImg" disabled="disabled" > 下一张</button>
-	<button id ="genFileList"  > 生成文件列表</button>
-<img id="preview" src="">
+	
+ 	
+	<a id ="preImg" disabled= "false" class="dowLit" > 上一张</a>
+	<a id ="nextImg" disabled="disabled"  class="dowLit"> 下一张</a>
+	
+	<div class="checkboxThree">
+		<input type="checkbox" value="1" id="auto" checked="checked"  name="">
+		<label for="auto"></label>
+		<p>自动开启记录</p>
+	</div>
+
+ 
 	
 	<!-- <img id="preview" src="img/wow.jpg"> -->
 
 </div>
-
+<img id="preview" src="">
 
 <div class = 'topBar'> 
 	<div class = "mousePosition">
@@ -172,17 +264,16 @@ html,body{
 		<textarea id = "mark" readonly="readonly"></textarea>
 
 		<textarea id = "store"></textarea>
-		<button id ="start"  > 开始记录</button>
+		<a id ="start" class="dowLit2" > 开始记录</a>
  
 
-		<button id ="clear"   > 清除标记点</button>
-		<button id ="submit"   > 确认提交</button>
-		<button id ="clearAll"   > 清空数据</button>
+		<a id ="clear"  class="dowLit2" > 清除标记点</a>
+		<a id ="submit" class="dowLit2"  > 确认提交</a>
+		<a id ="clearAll"  class="dowLit2" > 清空数据</a>
 	</div>
 	
-	<div>
-	<input type="checkbox" id ="auto" checked="checked">选新图片后自动开始记录</input>
-	</div>
+
+
 	
 		
 </div>
@@ -218,7 +309,7 @@ $(function(){
 
 	$("#store").val(window.localStorage["data"]);
 	$("#store").animate({scrollTop:$("#store")[0].scrollHeight - $("#store").height()},1000) ;
-
+ 
 
 	$("#start").click(function(){
 		start = true;
@@ -232,63 +323,93 @@ $(function(){
 		$(".rectangle").remove();
 	});
 	$("#clearAll").click(function(){
-		$("#store").val("");
-		window.localStorage["data"] = "";
+		if(confirm("确认删除所有数据吗")){
+			$("#store").val("");
+			window.localStorage["data"] = "";
+		}
 	});
 	$("#submit").click(function(){
-	 
-		if( !(count%2) ){
-			if (!(window.localStorage["data"])) {
-				window.localStorage["data"] = $("#mark").val()+ "\n"; 
+		if ($("#mark").val()) {
+			if( !(count%2) ){
+				if (!(window.localStorage["data"])) {
+					window.localStorage["data"] = $("#mark").val()+ "\n"; 
+				}
+				else {
+					window.localStorage["data"] += $("#mark").val()+ "\n"; 
+				}
+				$("#mark").val("");
+				record = "";
+				count = 0;
+				if($('#auto').prop('checked'))
+				{
+					start = true;
+				}
+				else{
+					start = false;
+				}
+				$("#store").val(window.localStorage["data"]);
+	
+				$(".point").remove();
+				$(".rectangle").remove();
+	
+	
+				$("#store").animate({scrollTop:$("#store")[0].scrollHeight - $("#store").height()},1000) ;
+				$("#nextImg").click();
 			}
-			window.localStorage["data"] += $("#mark").val()+ "\n"; 
-			$("#mark").val("");
-			record = "";
-			count = 0;
-			if($('#auto').prop('checked'))
-			{
-				start = true;
+			else {
+				alert("亲，还有一个框没画完呢");
 			}
-			else{
-				start = false;
-			}
-			$("#store").val(window.localStorage["data"]);
-
-			$(".point").remove();
-			$(".rectangle").remove();
-
-
-			$("#store").animate({scrollTop:$("#store")[0].scrollHeight - $("#store").height()},1000) ;
-			$("#nextImg").click();
-		}
-		else {
-			alert("亲，还有一个框没画完呢");
-		}
+		}	
+		else {}
 		
 	})
 
-	$("#fileListInput").val("");
+ 
 
+	//用于测试
+	// $("#fileListInput").val("的撒打算\n的撒打dsa算\n的谁带我去额撒打算\n");
+	// var fileArr = $("#fileListInput").val().split("\n");
+	// 		var selectDom = $("<select multiple></select>");
+			
+	// 		$("#fileListInput").slideUp(1000); 
+	// 		for (var i = 0; i < fileArr.length; i++) {
+	// 			if(fileArr[i]){
+	// 				var newOption =  $("<option>"+fileArr[i] +"</option>");
+	// 				newOption.appendTo(selectDom);
+	// 			}
+				
+	// 		}
+	// 		$("#fileList").append(selectDom);
+	// 		$("#fileList select").slideDown(1000);
+	// 		$(this).attr("disabled","disabled");
+	// 		$("#nextImg").attr("disabled",false);
+	// 		$("#preImg").attr("disabled",false);
 	 
 
 
 	$("#genFileList").click(function(){
-		var fileArr = $("#fileListInput").val().split("\n");
-		var selectDom = $("<select multiple></select>");
-		
-		$("#fileListInput").slideUp(1000); 
-		for (var i = 0; i < fileArr.length; i++) {
-			if(fileArr[i]){
-				var newOption =  $("<option>"+fileArr[i] +"</option>");
-				newOption.appendTo(selectDom);
-			}
+		if ($("#fileListInput").val() ){
+			var fileArr = $("#fileListInput").val().split("\n");
+			var selectDom = $("<select multiple></select>");
 			
+			$("#fileListInput").slideUp(1000); 
+			for (var i = 0; i < fileArr.length; i++) {
+				if(fileArr[i]){
+					var newOption =  $("<option>"+fileArr[i] +"</option>");
+					newOption.appendTo(selectDom);
+				}
+				
+			}
+			$("#fileList").append(selectDom);
+			$("#fileList select").slideDown(1000);
+			$(this).slideUp(1000);
+			$("#nextImg").attr("disabled",false);
+			$("#preImg").attr("disabled",false);
+
 		}
-		$("#fileList").append(selectDom);
-		$("#fileList select").slideDown(1000);
-		$(this).attr("disabled","disabled");
-		$("#nextImg").attr("disabled",false);
-		$("#preImg").attr("disabled",false);
+		else {
+			alert("请先将文件列表复制到这里")
+		}
 
 	})
 
@@ -337,14 +458,14 @@ $(function(){
 			$("#fileList select").animate({scrollTop:slecetScrollTop},200);
 		}
 		else{
-			listCount -- ;
+			listCount --;
 		}
 
 	});
 
 
 	$('#preview').mousemove(function(e){
-		$('.mousePosition').html("X Position:" + (+(e.pageX )- 200)+ "<br>   Y Position:" + (+(e.pageY )- 120));
+		$('.mousePosition').html("X Position:" + (+(e.pageX )- 200)+ "<br>   Y Position:" + (+(e.pageY )- 140));
 		// $('.mousePosition').html($("fileList").height());
 	}).click(function(e){
 		if(start){
@@ -382,7 +503,7 @@ $(function(){
 			var recordIn = '';
 			count ++
 			// record = record.slice(0,file_len) + record.slice(file_len+)
-			record += (+(e.pageX )- 200) + " " + (+(e.pageY )- 120) + " ";
+			record += (+(e.pageX )- 200) + " " + (+(e.pageY )- 140) + " ";
 
 			recordIn = fileName + " " + parseInt(count/2) + " "+ record;
 		 
