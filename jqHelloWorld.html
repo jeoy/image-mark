@@ -1,8 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
-
+.html,body,textarea{
+	margin:0;
+	padding:0;
+}
+html,body{
+	height: 100%;
+}
+.leftBar{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height:100%;
+	/*border: 1px solid black;*/
+ 
+}
+.topBar{
+	padding-top: 20px;
+	position: relative;
+	/*float: right;*/
+	margin-left: 200px;
+	top: 0;
+ 
+	 
+	height:95px;
+	/*border: 1px solid black;*/
+}
+.content{
+	width: 660px;
+	margin:0 auto;
+	position: relative;
+	
+}
 .mousePosition{
 	position: fixed;
 	right: 0;
@@ -13,77 +46,160 @@
 }
 #preview{
 	position: absolute;
-	left: 0;
+	left: 200px;
 	top: 120px;
+
 }
 #mark{
-	position: absolute;
-	top: 2%;
-	left: 20%;
+	position: relative;
 	width: 300px;
 	height: 50px;
 	overflow: scroll;
 }
 
 #store{
-	position: absolute;
-	top: 2%;
-	left: 50%;
+	margin-left: 40px;
+	position: relative; 
 	width: 300px;
 	height: 50px;
 	overflow: scroll;
+	white-space:nowrap; 
 }
 
+#fileListInput{
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	width: 150px;
+	height: 350px;
+	overflow: scroll;
+}
+
+#fileList select{
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	width: 150px;
+	height: 350px;
+	overflow: scroll;
+	display: none;
+}
+#fileList option{
+	height: 25px;
+	padding-top: 10px;
+	font-size: 13px;
+	/*vertical-align: middle;*/
+	/*text-align: center;*/
+	border: 0.5px solid rgba(200,200,200,0.5) ;
+}
+
+#preImg{
+	left: 15%;
+	position: absolute;
+	top: 66%
+}
+#nextImg{
+	left: 45%;
+	position: absolute;
+	top: 66%
+}
+#genFileList{
+	left: 25%;
+	position: absolute;
+	top: 70%
+}
 #start{
-	margin-left: 140px;
+	margin-left: 60px;
 }
 .point{
-	border-radius: 50px;
+	/*border-radius: 50px;*/
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	display: none; 
+}
+.rectangle{
+	border-radius: 0px;
 	position: absolute;
 	width: 10px;
 	height: 10px;
-	background-color: rgba(200,0,0,0.5);
+	border: rgba(14,255,7,1) 3px solid;
+	display: none;
+}
+
+.listEven{
+	background-color: red;
+}
+.listOdd{
+	background-color: green;
 }
 </style>
  
 </head>
-<body>
+<body ng-app = "imageMark">
  
-<div> <input type="button" id ="button1" value="jia" >
-<input type="button" id ="button2" value="you" > </div>
-<br>
 
 
-<input id="upload" type="file"    ><br>
-<br>
+<div class = "leftBar">
+	<div> <input type="button" id ="button1" value="jia" >
+	<input type="button" id ="button2" value="you" > </div>
+	<br>
  
+	<input id="upload" type="file"    ><br>
+	<br>
+
+	<textarea id = "fileListInput"></textarea>
+	<div id = "fileList">
+		 
+	</div>
+	<button id ="preImg" disabled= "false" > 上一张</button>
+	<button id ="nextImg" disabled="disabled" > 下一张</button>
+	<button id ="genFileList"  > 生成文件列表</button>
 <img id="preview" src="">
+	
+	<!-- <img id="preview" src="img/wow.jpg"> -->
 
-<!-- <img id="preview" src="img/wow.jpg"> -->
-
-
-<div class = "mousePosition">
-	 
 </div>
 
-<textarea id = "mark" readonly="readonly"></textarea>
 
-<textarea id = "store"></textarea>
+<div class = 'topBar'> 
+	<div class = "mousePosition">
+	 </div>
+	<div class="content">
+		<textarea id = "mark" readonly="readonly"></textarea>
 
-<input type="checkbox" id ="auto">读入新图片后自动开始记录</input>
-<button id ="start"  > 开始记录</button>
+		<textarea id = "store"></textarea>
+		<button id ="start"  > 开始记录</button>
  
 
-<button id ="clear"   > 清除标记点</button>
-<button id ="submit"   > 确认提交</button>
+		<button id ="clear"   > 清除标记点</button>
+		<button id ="submit"   > 确认提交</button>
+	</div>
+	
+	<div>
+	<input type="checkbox" id ="auto" checked="checked">选新图片后自动开始记录</input>
+	</div>
+	
+		
+</div>
+
+
+
+
+
 </body>
 
-<script src = "js/jquery-3.1.1.js"  type = "text/javascript"> </script>
+<script src = "js/jquery-3.1.1.js"  type = "text/javascript"></script>
+<!-- <script src = "js/angular-google.js"  type = "text/javascript"></script> -->
 <script>
+// angular.module('imageMark',[])
+// 			.controller("FileListController",function($scope){
+// 		$scope.fileNames = ["wow1.jpg","wow2.jpg","wow3.jpg","wow4.jpg"];
+
+// 		})
+ 
 $(function(){ 
-	$("#button1").click(function(){
-		alert("We gonna be rich");
-	});
+	 
 	// if ( !$("#path").val() ){
 	// 	disabled ="enabled"
 	// }
@@ -92,6 +208,9 @@ $(function(){
 	var start = false;
 	var data = "";
 	var fileName = "";
+	var oX, oY;
+	var rectangle;
+	var listCount ;
 	$("#start").click(function(){
 		start = true;
 	});
@@ -100,6 +219,8 @@ $(function(){
 		$("#mark").val("");
 		record = "";
 		count = 0;
+		$(".point").remove();
+		$(".rectangle").remove();
 	});
 
 	$("#submit").click(function(){
@@ -108,36 +229,173 @@ $(function(){
 			$("#mark").val("");
 			record = "";
 			count = 0;
-			start = false;
+			if($('#auto').prop('checked'))
+			{
+				start = true;
+			}
+			else{
+				start = false;
+			}
 			$("#store").val(data);
 
 			$(".point").remove();
+			$(".rectangle").remove();
 
 		}
 		else {
-			alert("亲，你这点的都不是偶数啊");
+			alert("亲，还有一个框没画完呢");
 		}
 		
 	})
 
+	$("#fileListInput").val("");
+
+	 
+
+
+	$("#genFileList").click(function(){
+		var fileArr = $("#fileListInput").val().split("\n");
+		var selectDom = $("<select multiple></select>");
+		
+		$("#fileListInput").slideUp(1000); 
+		for (var i = 0; i < fileArr.length; i++) {
+			if(fileArr[i]){
+				var newOption =  $("<option>"+fileArr[i] +"</option>");
+				newOption.appendTo(selectDom);
+			}
+			
+		}
+		$("#fileList").append(selectDom);
+		$("#fileList select").slideDown(1000);
+		$(this).attr("disabled","disabled");
+		$("#nextImg").attr("disabled",false);
+		$("#preImg").attr("disabled",false);
+
+	})
+
+	$("#nextImg").click(function(){
+		var currOption,
+			slecetScrollTop;
+
+		currOption = $("#fileList option:selected");
+
+		if(currOption.val() == $("#fileList option:last").val()){
+
+		}
+		else{
+			currOption.next().click();
+			currOption[0].selected = "";
+			currOption.next()[0].selected = "selected";
+		}
+		if (listCount == 8)
+		{
+			slecetScrollTop = $("#fileList select").scrollTop() + 40;
+			$("#fileList select").animate({scrollTop:slecetScrollTop},200);
+		}
+		else{
+			listCount ++ ;
+		}
+		
+		 
+		 // currOption.val()
+	});
+	$("#preImg").click(function(){
+		var currOption;
+		currOption = $("#fileList option:selected");
+
+		if(currOption.val() == $("#fileList option:first").val()){
+
+		}
+		else{
+			currOption.prev().click();
+			currOption[0].selected = "";
+			currOption.prev()[0].selected = "selected";
+		}
+
+		if (listCount == 1)
+		{
+			slecetScrollTop = $("#fileList select").scrollTop() - 40;
+			$("#fileList select").animate({scrollTop:slecetScrollTop},200);
+		}
+		else{
+			listCount -- ;
+		}
+
+	});
+
 
 	$('#preview').mousemove(function(e){
-		$('.mousePosition').html("X Position:" + e.pageX + "<br>   Y Position:" + (parseInt(e.pageY )- 120));
+		// $('.mousePosition').html("X Position:" + (+(e.pageX )- 200)+ "<br>   Y Position:" + (+(e.pageY )- 120));
+		$('.mousePosition').html($("fileList").height());
 	}).click(function(e){
 		if(start){
-			var point = $("<div class = 'point'><div>");
-			point.css({"left":+e.pageX-5,"top":+e.pageY-5});
-			point.appendTo("body");
+			 
+			if( !(count%2) ){
+				var point = $("<img class = 'point' src = 'img/Mapicon.png'><img>");
+				point.css({"left":+e.pageX-15,"top":+e.pageY-30});
+				point.appendTo("body");
+				point.fadeIn();
+				rectangle = $("<div class = 'rectangle'><div>");
+				oX = e.pageX;
+				oY = e.pageY;
+				rectangle.css({"left":+oX,"top":+oY});
+				// $(".point").fadeOut();
 
+			}
+			else {
+				var point = $("<img class = 'point' src = 'img/Mapicon.png'><img>");
+				point.css({"left":+e.pageX-15,"top":+e.pageY-30});
+				point.appendTo("body");
+				point.fadeIn();
+				if ( (+e.pageX - oX) < 0 ) {
+					rectangle.css({"left":+e.pageX});
+				}
+				if ( (+e.pageY - oY) < 0 ) {
+					rectangle.css({"top":+e.pageY});
+				}
+				rectangle.css({"width": Math.abs(+e.pageX - oX),"height": Math.abs(+e.pageY - oY) });
+				rectangle.appendTo("body");
+				rectangle.fadeIn();
+				$(".point").fadeOut(1000);
+			}
+			
+
+			var recordIn = '';
 			count ++
 			// record = record.slice(0,file_len) + record.slice(file_len+)
-			record += e.pageX + " " + (+(e.pageY )- 120) + " ";
+			record += (+(e.pageX )- 200) + " " + (+(e.pageY )- 120) + " ";
 
 			recordIn = fileName + " " + parseInt(count/2) + " "+ record;
+		 
 			$("#mark").val(recordIn);
 		}
 
 	})
+
+	$("#fileList").on("change",function(){
+
+		$("option").on("click",function(){
+			var recordIn = '';
+			if($('#auto').prop('checked'))
+				{
+					start = true;
+				}
+			else{
+					start = false;
+			}
+			if (!listCount){
+				listCount = $("#fileList option").index($(this));
+			}
+			
+			fileName =  $(this).val();
+			recordIn = fileName + " " + 0
+
+			$("#mark").val(recordIn);
+			count = 0;
+			var path = $("#preview").attr("src","data/"+ fileName);
+	
+		});
+	});
 	$('#upload').change(function(){
 
 		if($('#auto').prop('checked'))
@@ -150,16 +408,12 @@ $(function(){
 		fileName = $('#upload')[0].files[0].name + "  ";
  
 		count = 0;
-		var path = $("#preview").attr("src","img/"+ fileName);
+		var path = $("#preview").attr("src","data/"+ fileName);
+	});
 
- 	
 });
- 
- 
- 
 
 
-})
  
  
 </script>
