@@ -9,6 +9,11 @@
 }
 html,body{
 	height: 100%;
+	background-color: #efefef;
+	background-image: url("img/logoGray.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 350px;
 }
 #logo img{
 	width: 65px;
@@ -17,6 +22,7 @@ html,body{
 }
 p{
 	color: white;
+	font-family: FZYY;
 	font-size: 25px;
 }
 button{
@@ -76,6 +82,7 @@ button{
 	background-color: #179f8d;
 		color: white;
 	font-size: 13px;
+ 
 }
 
 #store{
@@ -88,6 +95,7 @@ button{
 	color: white;
 	font-size: 12px;
 	background-color: #179f8d;
+
 }
 
 #fileListInput{
@@ -176,7 +184,7 @@ textarea::-webkit-input-placeholder {
 .dow{display:block;width:102px;height:42px; line-height:42px; text-align:center;
 	  vertical-align: bottom;
 	  border-radius: 2px;
-	 font-family:arial,verdana,sans-serif, '新宋体'; font-weight:bold; font-size:14px; background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
+	 font-family:FZYY; font-weight:bold; font-size:14px; background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
 	  transition: background-color 0.7s;
   -moz-transition: background-color   0.7s; /* Firefox 4 */
   -webkit-transition:background-color  0.7s; /* Safari and Chrome */
@@ -189,7 +197,7 @@ textarea::-webkit-input-placeholder {
 	   
 	  margin-top: 5px;
 	  border-radius: 2px;
-	 font-family:arial,verdana,sans-serif, '新宋体'; font-weight:bold; font-size:12px; background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
+	 font-family:FZYY; font-weight:bold; font-size:12px; background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
 	  transition: background-color 0.7s;
   -moz-transition: background-color   0.7s; /* Firefox 4 */
   -webkit-transition:background-color  0.7s; /* Safari and Chrome */
@@ -201,7 +209,7 @@ textarea::-webkit-input-placeholder {
 	  margin-left: 15px;
 	  margin-top: 5px;
 	  border-radius: 2px;
-	 font-family:arial,verdana,sans-serif, '新宋体'; font-weight:bold; font-size:13px; 
+	 font-family:FZYY; font-weight:bold; font-size:15px; 
 	 background:#e9c814;color:#fff; text-decoration:none;   cursor:pointer;
  
   transition: background-color 0.7s;
@@ -218,7 +226,14 @@ textarea::-webkit-input-placeholder {
 .dowLit2:active{background:#0d79d5;}
 
 
-input[type=checkbox]{visibility:hidden;}  .checkboxThree{width: 120px; height:40px;background:#333;margin:20px 25px;border-radius:50px;position:relative;margin-left: 15px;}.checkboxThree:before{content:'On';position:absolute;top:12px;left:13px;height:2px;color:#1fbba6;font-size:16px;}.checkboxThree:after{content:'Off';position:absolute;top:12px;left:84px;height:2px;color:#ddd;font-size:16px;}.checkboxThree label{display:block;width:52px;height:22px;border-radius:50px;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;-ms-transition:all .5s ease;transition:all .5s ease;cursor:pointer;position:absolute;top:9px;z-index:1;left:12px;background:#ddd;}.checkboxThree input[type=checkbox]:checked+label{left:60px;background:#1fbba6;} </style>
+input[type=checkbox]{visibility:hidden;}  .checkboxThree{width: 120px; height:40px;background:#333;margin:20px 25px;border-radius:50px;position:relative;margin-left: 15px;}.checkboxThree:before{content:'On';position:absolute;top:12px;left:13px;height:2px;color:#1fbba6;font-size:16px;}.checkboxThree:after{content:'Off';position:absolute;top:12px;left:84px;height:2px;color:#ddd;font-size:16px;}.checkboxThree label{display:block;width:52px;height:22px;border-radius:50px;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;-ms-transition:all .5s ease;transition:all .5s ease;cursor:pointer;position:absolute;top:9px;z-index:1;left:12px;background:#ddd;}.checkboxThree input[type=checkbox]:checked+label{left:60px;background:#1fbba6;} 
+@font-face
+{
+font-family: FZYY;
+src: url('font/fzyy.TTF'); /* IE9+ */
+}
+
+</style>
 </style>
  
 </head>
@@ -309,7 +324,7 @@ $(function(){
 
 	$("#store").val(window.localStorage["data"]);
 	$("#store").animate({scrollTop:$("#store")[0].scrollHeight - $("#store").height()},1000) ;
- 
+ 	// $("#preview").attr("src","img/logoGray.png");
 
 	$("#start").click(function(){
 		start = true;
@@ -532,7 +547,7 @@ $(function(){
 
 			$("#mark").val(recordIn);
 			count = 0;
-			var path = $("#preview").attr("src","data/"+ fileName);
+			$("#preview").attr("src","data/"+ fileName);
 	
 		});
 	});
@@ -548,7 +563,7 @@ $(function(){
 		fileName = $('#upload')[0].files[0].name + "  ";
  
 		count = 0;
-		var path = $("#preview").attr("src","data/"+ fileName);
+		$("#preview").attr("src","data/"+ fileName);
 	});
 
 });
