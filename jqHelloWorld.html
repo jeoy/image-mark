@@ -111,6 +111,9 @@ html,body{
 #start{
 	margin-left: 60px;
 }
+#clearAll{
+	margin-left: 220px;
+}
 .point{
 	/*border-radius: 50px;*/
 	position: absolute;
@@ -174,6 +177,7 @@ html,body{
 
 		<button id ="clear"   > 清除标记点</button>
 		<button id ="submit"   > 确认提交</button>
+		<button id ="clearAll"   > 清空数据</button>
 	</div>
 	
 	<div>
@@ -227,7 +231,10 @@ $(function(){
 		$(".point").remove();
 		$(".rectangle").remove();
 	});
-
+	$("#clearAll").click(function(){
+		$("#store").val("");
+		window.localStorage["data"] = "";
+	});
 	$("#submit").click(function(){
 	 
 		if( !(count%2) ){
