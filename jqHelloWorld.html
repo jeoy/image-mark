@@ -416,7 +416,20 @@ $(function(){
 				
 			}
 			$("#fileList").append(selectDom);
-			$("#fileList select").slideDown(1000);
+			$("#fileList select").slideDown(1000,function(){
+ 				
+ 	 
+
+				$("#fileList").trigger("change");
+				$("#fileList option:eq(0)").click();
+				$("#fileList option:eq(0)")[0].selected = "selected";
+				// fileName =  $("#fileList option:eq(0)").val();
+				// recordIn = fileName + " " + 0
+
+				// $("#mark").val(recordIn);
+				// count = 0;
+				// $("#preview").attr("src","data/"+ fileName);
+			});
 			$(this).slideUp(1000);
 			$("#nextImg").attr("disabled",false);
 			$("#preImg").attr("disabled",false);
@@ -529,7 +542,7 @@ $(function(){
 
 	$("#fileList").on("change",function(){
 
-		$("option").on("click",function(){
+		$("option").click(function(){
 			var recordIn = '';
 			if($('#auto').prop('checked'))
 				{
